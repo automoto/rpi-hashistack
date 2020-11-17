@@ -5,8 +5,13 @@
 hostname: nomad-clt
 
 manage_etc_hosts: true
-package_update: false
-package_upgrade: false
+package_update: true
+package_upgrade: true
+users:
+  - name: deploy
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCm7jITFputC8wuaAQvsCIneyZu7rdHUV9IcisFPZx6k8VtSWzmkZUWqUdnAp2756V1eM2GVALCI1r6r+v0NK9fLMJmB2KffKILgI0G4Ec4wk8KMwO2kDQjn1UwOj0Xvs5c1kTUJqeRz3ZsP8XqN1iNqtUkN03wwJKYdUlkI5UTpaZLwKM6j0FNiE/d9vVDimqtk4l+dnY4hUg2KUrREdsLius/E6UzeLpYj2q5KI5e4hugX9uyQicaNgBIBYkuk7A7jVAzxdnR1sis1aEbnknQIYDR3sqIeIlKxLXCVBiLXMVL2AwDkmrOuzt+PKF4YpRk4SOmzrZfdSLu0ZWkIIBPaf0Eg2C+bKfX1ACTgra0DV5S/ziNdXtnA1gticepFhFinCcJjMEbtmPobmlp4HAhAYXbQEpyaVLZgvpWOu34Q0ud/vL6LYtmXPMtI3G8orL/NA+al53IZ2JXC2QGdH5ao6oIOGauLtXVC6VCCcN8e/EJ2jxo7vzWPRsKk+BtwD5WztWY0M+/qxOU3QO/S7trOKoAV7BdCV+6QAS4f4dBhPtcW9q9trfCnBx9a+/qYRYRrc0fRPLVt7pUPjrcoWcvr7KH5Ai0N22K+lejMcKDa/8IbjstV8T4vdFlIfxltGRFYLytlTogQV9yZeeVrxBLf4zgB866hwzJH1PcepkFAQ== gc@dev.null
 
 write_files:
   - path: /etc/consul.d/consul.hcl

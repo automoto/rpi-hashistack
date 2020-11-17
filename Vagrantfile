@@ -7,10 +7,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.boot_timeout = 600
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
-  end
-
   config.vm.provision "build-env", type: "shell", :path => "ci/provision.sh", privileged: false
   
 end
